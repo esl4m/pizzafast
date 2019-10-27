@@ -30,6 +30,7 @@ List all orders and create new `http://127.0.0.1:8000/order`
 Update or Delete `http://127.0.0.1:8000/order/{{order_id}}`
 
 - Or by postman: Add the url and method
+
 -- For Pizza --
 ```
 GET http://127.0.0.1:8000/pizza : will list all pizza
