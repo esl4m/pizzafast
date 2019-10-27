@@ -1,5 +1,6 @@
-#PizzaFast
+# PizzaFast
 Python Django REST framework application for ordering pizza.
+
 
 ## To run the app:
 - Create adn activate virtualenv: 
