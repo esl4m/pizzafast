@@ -33,6 +33,18 @@ class GetOrderByCustomer(generics.ListAPIView):
             # Handle the exception -- return 'customer not found'
 
 
+class GetOrderByStatus(generics.ListAPIView):
+    model = Order
+    serializer_class = OrderSerializer
+
+    def get_queryset(self):
+        status = self.kwargs['status']
+        queryset = self.model.objects.filter(status=status)
+        print(queryset)
+        if queryset:
+            return queryset
+
+
 class OrderEdit(generics.RetrieveUpdateDestroyAPIView):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
