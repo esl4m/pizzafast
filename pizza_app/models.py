@@ -11,6 +11,12 @@ class Pizza(models.Model):
         (30, 'small 30cm'), (50, 'medium 50cm')
     )
 
+    status = (
+        (1, "Processing"),
+        (2, "On the way"),
+        (3, "Delivered")
+    )
+
     name = models.CharField(max_length=50)
     small_size_price = models.DecimalField(max_digits=8, decimal_places=2)
     med_size_price = models.DecimalField(max_digits=8, decimal_places=2)
