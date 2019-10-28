@@ -1,0 +1,43 @@
+version: "2.1"
+
+volumes:
+  db_data:
+    driver: local
+
+services:
+  db:
+    container_name: db
+    image: postgres:latest
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - ./configs/postgresql/pg_hba.conf:/etc/pg_hba.conf
+      - db_data:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - 8181:8080
+
+  web:
+    build: .
+    container_name: web
+    restart: always
+    depends_on:
+      - db
+    links:
+      - db
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - ./:/app/
+
