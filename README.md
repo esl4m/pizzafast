@@ -2,7 +2,14 @@
 Python Django REST framework application for ordering pizza.
 
 
-## To run the app:
+## To run the app on docker:
+- Clone the repo to your local `git clone https://github.com/esl4m/pizzafast.git`
+- cd into cloned folder.
+- run the following command `docker-compose up --build -d`
+- To check the status of the running containers, run the following command `docker ps -a`
+
+
+## To run the app without docker:
 - Create adn activate virtualenv: 
 `virtualenv env`
 `source env/bin/activate`
@@ -23,7 +30,9 @@ Python Django REST framework application for ordering pizza.
 
 - Run `./manage.py runserver`
 
-- To check the endpoints by url
+......
+
+### To check the endpoints by url
 List all pizza entries and create new `http://127.0.0.1:8000/pizza`
 Update or Delete `http://127.0.0.1:8000/pizza/{{pizza_id}}`
 
