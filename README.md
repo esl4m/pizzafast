@@ -30,7 +30,7 @@ Python Django REST framework application for ordering pizza.
 
 - Run `./manage.py runserver`
 
-......
+---
 
 ### To check the endpoints by url
 List all pizza entries and create new `http://127.0.0.1:8000/pizza`
